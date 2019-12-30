@@ -48,6 +48,7 @@ public class LoginTest {
                     val id = rs.getInt("id");
                     val number = rs.getString("number");
                     val balanceInKopecks = rs.getInt("balance_in_kopecks");
+                    System.out.println(id + " " + number + " " + balanceInKopecks);
                 }
             }
         }
