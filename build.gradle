@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'io.freefair.lombok' version '4.1.2'
+}
+
+group 'ru.netology'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.1'
+    testImplementation 'com.codeborne:selenide:5.3.1'
+    testImplementation 'commons-dbutils:commons-dbutils:1.7'
+    testImplementation 'com.github.javafaker:javafaker:1.0.1'
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+}
