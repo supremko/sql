@@ -12,7 +12,7 @@ public class LoginTest {
         val dataSQL = "INSERT INTO users(login, password) VALUES (?, ?);";
         try (
                 val conn = DriverManager.getConnection(
-                        "jdbc:mysql://192.168.99.100:3306/app", "app", "249281008"
+                        "jdbc:mysql://localhost:3306/app", "app", "249281008"
                 );
                 val dataStmt = conn.prepareStatement(dataSQL);
         ) {
@@ -31,7 +31,7 @@ public class LoginTest {
         val cardsSQL = "SELECT id, number, balance_in_kopecks FROM cards WHERE user_id = ?;";
         try (
                 val conn = DriverManager.getConnection(
-                        "jdbc:mysql://192.168.99.100:3306/app", "app", "249281008"
+                        "jdbc:mysql://localhost:3306/app", "app", "249281008"
                 );
                 val countStmt = conn.createStatement();
                 val cardsStmt = conn.prepareStatement(cardsSQL);
