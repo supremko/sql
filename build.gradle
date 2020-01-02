@@ -21,6 +21,7 @@ dependencies {
     testImplementation 'com.codeborne:selenide:5.3.1'
     testImplementation 'commons-dbutils:commons-dbutils:1.7'
     testImplementation 'com.github.javafaker:javafaker:1.0.1'
+    testImplementation 'mysql:mysql-connector-java:8.0.18'
 }
 
 test {
