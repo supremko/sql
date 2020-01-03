@@ -9,18 +9,20 @@ public class LoginTest {
     @BeforeEach
     void setUp() throws SQLException {
         val faker = new Faker();
-        val dataSQL = "INSERT INTO users(login, password) VALUES (?, ?);";
+        val dataSQL = "INSERT INTO users(id, login, password) VALUES (?, ?, ?);";
         try (
                 val conn = DriverManager.getConnection(
                         "jdbc:mysql://localhost:3306/app", "app", "249281008"
                 );
                 val dataStmt = conn.prepareStatement(dataSQL);
         ) {
-            dataStmt.setString(1, faker.name().username());
-            dataStmt.setString(2, "password");
+            dataStmt.setString(1, faker.bothify("##??#???-?##?-##??-####-###??#?#??##"));
+            dataStmt.setString(2, faker.name().username());
+            dataStmt.setString(3, "password");
             dataStmt.executeUpdate();
-            dataStmt.setString(1, faker.name().username());
-            dataStmt.setString(2, "password");
+            dataStmt.setString(1, faker.bothify("##??#???-?##?-##??-####-###??#?#??##"));
+            dataStmt.setString(2, faker.name().username());
+            dataStmt.setString(3, "password");
             dataStmt.executeUpdate();
         }
     }
@@ -45,7 +47,7 @@ public class LoginTest {
             cardsStmt.setInt(1, 1);
             try (val rs = cardsStmt.executeQuery()) {
                 while (rs.next()) {
-                    val id = rs.getInt("id");
+                    val id = rs.getString("id");
                     val number = rs.getString("number");
                     val balanceInKopecks = rs.getInt("balance_in_kopecks");
                     System.out.println(id + " " + number + " " + balanceInKopecks);
