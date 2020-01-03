@@ -44,13 +44,13 @@ public class LoginTest {
                     System.out.println(count);
                 }
             }
-            cardsStmt.setInt(1, 1);
+            cardsStmt.setString(1, "ffa708a6-e90c-4cdf-9581-f5af9fc1b396" );
             try (val rs = cardsStmt.executeQuery()) {
                 while (rs.next()) {
                     val id = rs.getString("id");
                     val number = rs.getString("number");
                     val balanceInKopecks = rs.getInt("balance_in_kopecks");
-                    System.out.println(id + " " + number + " " + balanceInKopecks);
+                    System.out.println(id + " | " + number + " | " + balanceInKopecks);
                 }
             }
         }
